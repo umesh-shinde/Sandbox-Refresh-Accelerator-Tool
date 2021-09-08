@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Service_Request_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Mcoe_Service_Requests__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Service_Request_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Mcoe_Service_Requests__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>This app is used for Sandbox refresh accelerator tool</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>SRA Tool</label>
+    <navType>Console</navType>
+    <tabs>Sandbox_Requests</tabs>
+    <tabs>Mcoe_Service_Requests__c</tabs>
+    <tabs>Org_Limits_Monitoring__c</tabs>
+    <tabs>Mcoe_Staging__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>SRA_Tool_UtilityBar</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>Mcoe_Service_Requests__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Mcoe_Staging__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Org_Limits_Monitoring__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Sandbox_Requests</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>
