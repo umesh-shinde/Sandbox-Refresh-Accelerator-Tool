@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <consumerKey>3MVG9fe4g9fhX0E4OI.QUgUdJG5HeCRvZ8UNSBwd0JtdfsKN7uBF_X4OY.YOKF.hwPRp4l1cK9qaHcL0drDEM</consumerKey>
+    <consumerSecret>8bjC/rHvbtW1tE975aGLxkmq9YrFgP5wuHwn4YWLSOQt5Dv2TfmUfu3A85XZcd3ii54TMQ/QHSOYvZCfDa1FGnBBGPdiC2rX</consumerSecret>
+    <defaultScopes>full refresh_token</defaultScopes>
+    <friendlyName>SR Activity Umesh OAuth</friendlyName>
+    <includeOrgIdInIdentifier>true</includeOrgIdInIdentifier>
+    <providerType>Salesforce</providerType>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+</AuthProvider>

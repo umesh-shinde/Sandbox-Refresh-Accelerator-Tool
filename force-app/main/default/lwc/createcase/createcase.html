@@ -1,0 +1,99 @@
+<template>
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="Create New Service Request">
+            <lightning-button variant="brand"
+                label="Create Sandbox"
+                onclick={openModal}
+                class="slds-m-left_x-small">
+        </lightning-button>
+    
+<template if:true={isModalOpen}>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Sandbox Request</h2>
+            </header>
+            <div class="slds-p-around_medium slds-scrollable" data-field="modal_content_id_1" style="height:80vh;background-color:white">
+            <!-- Modal/Popup Box LWC body starts here -->
+            <lightning-record-edit-form object-api-name="Mcoe_Service_Requests__c" record-id={recordId} onsuccess={handleSandboxCreated} onerror={handleErrorfromTrigger}>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-2">
+                        
+                        <lightning-input-field field-name='Mcoe_Request_Type__c' data-field="Mcoe_Request_Type__c"  onchange={requestTypeChange} ></lightning-input-field>
+                        <lightning-input-field field-name='Mcoe_Sandbox_Type__c' data-field="Sandbox Type" required></lightning-input-field>
+                        <template if:true={sandboxCreation}>
+                            <div>
+                        <lightning-input-field field-name='Mcoe_Sandbox_Name__c' data-field="Mcoe_Sandbox_Name__c" required></lightning-input-field>
+                        <lightning-input-field field-name='Mcoe_New_Sandbox_Description__c' data-field="Mcoe_New_Sandbox_Description__c" ></lightning-input-field>
+      
+                        </div>
+                    </template>
+                        <template if:true={sandboxNames}>
+                            
+                        <lightning-combobox
+                        name="Sandbox Names"
+                        label="Sandbox Names"
+                        placeholder="Choose Sandbox"
+                        value={items}
+
+                        onchange={handleChange}
+                        options={sandboxOptions} ></lightning-combobox>
+                    
+                        
+                    </template>
+                        <lightning-input-field field-name='Mcoe_Approval_Comment__c' data-field="Mcoe_Approval_Comment__c" ></lightning-input-field>
+                                      </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            
+                        <lightning-input-field field-name='Mcoe_Requestor__c' data-field="Mcoe_Requestor__c"></lightning-input-field>
+                        <lightning-input-field field-name='Mcoe_Request_Priority__c' data-field="Mcoe_Request_Priority__c"></lightning-input-field>
+                        <lightning-input-field field-name='Mcoe_Business_Justification__c' data-field="Mcoe_Business_Justification__c"></lightning-input-field>
+                        <template if:true={cancellationReason}>
+                            <div>
+                            <lightning-input-field field-name='Mcoe_Cancellation_Reason__c' data-field="Mcoe_Cancellation_Reason__c"></lightning-input-field>
+                        </div>
+                    </template>
+                        <template if:true={rejectionReason}>
+                            <div>
+                        <lightning-input-field field-name='Mcoe_Rejection_Reason__c' data-field="Mcoe_Rejection_Reason__c"></lightning-input-field>
+                    </div>
+                    </template>
+                        <lightning-input-field field-name='Mcoe_Request_Status__c' data-field="Mcoe_Request_Status__c" onchange={requestStatusChange} class="slds-hidden"></lightning-input-field>
+                        <lightning-input-field field-name='Mcoe_Sandbox_Names__c' data-field="Mcoe_Sandbox_Names__c" class="slds-hidden"></lightning-input-field>
+                        
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+
+                        </div>
+                </div>
+                </lightning-record-edit-form>
+            <!-- Modal/Popup Box LWC footer starts here -->
+        </div>
+            <footer class="slds-modal__footer">
+                <lightning-button type="submit" variant="brand" name="submit" label="SubmitRequest" onclick={handleSubmit}> <!--Label Use  -->
+                </lightning-button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <lightning-button label="cancel" variant="neutral" onclick={closeModal}></lightning-button>  
+                
+                
+            </footer>
+        </div>
+        
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+ 
+        </lightning-tab>
+        <lightning-tab label="List of Available Sandboxes">
+            <c-listof-Sandboxes></c-listof-Sandboxes> 
+    </lightning-tab>
+    </lightning-tabset>
+</template>

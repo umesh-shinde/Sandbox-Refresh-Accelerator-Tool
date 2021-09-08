@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Mcoe_Org_Name__c</columns>
+    <columns>Mcoe_Request_Priority__c</columns>
+    <columns>Mcoe_Request_Type__c</columns>
+    <columns>Mcoe_Request_Status__c</columns>
+    <columns>Mcoe_Requestor__c</columns>
+    <columns>Mcoe_Sandbox_Names__c</columns>
+    <columns>Mcoe_Sandbox_Name__c</columns>
+    <columns>Mcoe_Sandbox_Type__c</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>Mcoe_Failure_Reason__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

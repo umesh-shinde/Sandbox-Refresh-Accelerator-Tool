@@ -1,0 +1,8 @@
+.slds-radio_button-group{
+    border-color: red;
+}
+
+.cls  .slds-form-element__legend{
+    font-size:12pt;
+    font-style: italic !important;
+  }

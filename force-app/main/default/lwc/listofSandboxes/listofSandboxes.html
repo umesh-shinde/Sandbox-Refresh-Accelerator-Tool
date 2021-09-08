@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>  
+        <div class = "slds-m-around_medium">  
+            <template if:true ={cases}>
+                 <div style="height: 300px;">  
+                    <lightning-datatable key-field="Id"
+                                         data={cases}
+                                         columns={columns}
+                                         hide-checkbox-column="true"
+                                         show-row-number-column="true"
+                                         onrowaction={handleRowAction} column-widths-mode="Auto" max-column-width=500px>
+                    </lightning-datatable>  
+                </div>   
+            </template>      
+            <template if:true ={error}>  
+                {error}>                  
+            </template>  
+        </div>  
+    </lightning-card>
+</template>

@@ -1,0 +1,30 @@
+<template>
+    <lightning-card>
+        <div if:true={isLoading} class="">
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </div>
+        <div if:false={isLoading} class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2"></div>
+            <div class="slds-col slds-size_1-of-2">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3 slds-align_absolute-center slds-float_right">
+                        <p>Schedule Time(mins)</p>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-combobox
+                        value={value}
+                        options={picklist}
+                        onchange={handleChange}
+                        variant="label-hidden" >
+                    </lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-button variant="brand" label="Update" onclick={handleSave}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </lightning-card>
+</template>

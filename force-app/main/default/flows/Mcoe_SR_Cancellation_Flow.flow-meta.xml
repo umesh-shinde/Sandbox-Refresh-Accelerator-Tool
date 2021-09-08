@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <description>This flow is used to cancel service request.</description>
+    <interviewLabel>SR Cancellation Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SR Cancellation Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>SR_Object_Record</name>
+        <label>SR Object Record</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cancellation_Reason_Screen</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>RecordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Mcoe_Service_Requests__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Mcoe_Cancellation_Reason__c</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Mcoe_Requestor__c</queriedFields>
+        <queriedFields>Mcoe_Request_Status__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Cancellation_Reason</name>
+        <label>Update Cancellation Reason</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <connector>
+            <targetReference>Cancellation_Confirmation_Screen</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2) AND 3</filterLogic>
+        <filters>
+            <field>Mcoe_Request_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Created</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Mcoe_Request_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Mcoe_Requestor__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Mcoe_Cancellation_Reason__c</field>
+            <value>
+                <elementReference>SR_Cancellation_Reason_Textbox</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Mcoe_Request_Status__c</field>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Mcoe_Service_Requests__c</object>
+    </recordUpdates>
+    <screens>
+        <name>Cancellation_Confirmation_Screen</name>
+        <label>Cancellation Confirmation Screen</label>
+        <locationX>176</locationX>
+        <locationY>518</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Cancellation_Confirmation_Message</name>
+            <fieldText>&lt;p&gt;Your service request {!SR_Object_Record.Name} has been successfully cancelled.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>This screen will ask for cancellation Reason</description>
+        <name>Cancellation_Reason_Screen</name>
+        <label>Cancellation Reason Screen</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Update_Cancellation_Reason</targetReference>
+        </connector>
+        <fields>
+            <name>CancellationReasonLabel</name>
+            <fieldText>&lt;p&gt;Do you really want to cancel this case, then please provide Cancellation Reason below&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>SR_Cancellation_Reason_Textbox</name>
+            <dataType>String</dataType>
+            <fieldText>Enter Cancellation Reason</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SR_Object_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>RecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
