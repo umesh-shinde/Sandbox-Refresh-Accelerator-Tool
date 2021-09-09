@@ -14,6 +14,6 @@ For using this feature, we need to follow below steps-
 3.	User can track the status of their service request under single object.
 4.	All service requests will be processed only after initial approval.
 
-* [Object and Custom Metadata Structure.xlsx](https://github.com/umesh-shinde/Sandbox-Refresh-Accelerator-Tool/files/7136315/Object.and.Custom.Metadata.Structure.xlsx) *
-* [SRAT Component List.xlsx](https://github.com/umesh-shinde/Sandbox-Refresh-Accelerator-Tool/files/7136321/SRAT.Component.List.xlsx) *
-* [Sandbox Refresh Accelerator Tool.docx](https://github.com/umesh-shinde/Sandbox-Refresh-Accelerator-Tool/files/7136327/Sandbox.Refresh.Accelerator.Tool.docx) *
+* [Object and Custom Metadata Structure.xlsx](https://github.com/umesh-shinde/Sandbox-Refresh-Accelerator-Tool/files/7136315/Object.and.Custom.Metadata.Structure.xlsx)
+* [SRAT Component List.xlsx](https://github.com/umesh-shinde/Sandbox-Refresh-Accelerator-Tool/files/7136321/SRAT.Component.List.xlsx)
+* [Sandbox Refresh Accelerator Tool.docx](https://github.com/umesh-shinde/Sandbox-Refresh-Accelerator-Tool/files/7136327/Sandbox.Refresh.Accelerator.Tool.docx)
